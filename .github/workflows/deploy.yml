@@ -19,7 +19,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 185.33.54.15   # Cseréld ki a saját szervered címére
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          username: ${{ secrets.FTP_USERNAME_DEMO }}
+          password: ${{ secrets.FTP_PASSWORD_DEMO }}
           local-dir: ./ # Lokális mappa (alapértelmezésben a teljes repository)
           server-dir: /${{ secrets.SIGNUP_TRAINING_DEMO_DIR }} # A cél könyvtár a szerveren
