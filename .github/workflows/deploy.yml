@@ -1,0 +1,25 @@
+name: FTP Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # A repository tartalmának letöltése
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # A fájlok feltöltése FTP-vel
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 185.33.54.15   # Cseréld ki a saját szervered címére
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./ # Lokális mappa (alapértelmezésben a teljes repository)
+          server-dir: /${{ secrets.SIGNUP_TRAINING_DEMO_DIR }} # A cél könyvtár a szerveren
