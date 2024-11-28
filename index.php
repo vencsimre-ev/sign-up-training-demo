@@ -5,6 +5,10 @@ require 'src/Controllers/TrainingController.php';
 
 use src\Controllers\TrainingController;
 
-$controller = new TrainingController();
-$controller->handleRequest();
+try {
+    $controller = new TrainingController();
+    $controller->handleRequest();
+} catch (Exception $e) {
+    echo 'Exception: ' . $e->getMessage();
+}
 

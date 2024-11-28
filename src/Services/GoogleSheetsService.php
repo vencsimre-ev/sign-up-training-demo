@@ -20,6 +20,11 @@ class GoogleSheetsService
             throw new Exception('.env fájl nem található vagy nem tölthető be!');
         }
 
+        if (empty($_ENV['SPREADSHEET_ID'])
+            || empty($_ENV['GOOGLE_AUTH_CONFIG_PATH'])) {
+            throw new Exception('.env hiba: SPREADSHEET_ID vagy GOOGLE_AUTH_CONFIG_PATH nincs megadva!');
+        }
+
         $this->spreadsheetId = $_ENV['SPREADSHEET_ID'];
 
         $client = new Client();
