@@ -13,6 +13,6 @@ services:
       PHP_POST_MAX_SIZE: 512M
     ports:
       - "8090:80"
-    volumes:
-      - ./:/var/www/html
+    # volumes:
+    #   - ./:/var/www/html
     restart: unless-stopped
